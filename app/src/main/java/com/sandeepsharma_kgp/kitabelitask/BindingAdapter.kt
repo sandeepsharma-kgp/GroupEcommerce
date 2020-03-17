@@ -1,5 +1,7 @@
 package com.sandeepsharma_kgp.kitabelitask
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.graphics.Paint
 import android.widget.Button
 import android.widget.ImageView
@@ -9,6 +11,9 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import java.sql.Timestamp
+import java.util.concurrent.TimeUnit
+
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<ResponseModel>?) {
@@ -47,21 +52,39 @@ fun bindGroupPriceText(textView: TextView, groupPrice: String?) {
     textView.text = "Rp $groupPrice/item"
 }
 
-@BindingAdapter("buttonText")
-fun bindDiscountPriceText(button: Button, buttonText: List<String>?) {
-    var text = "BUY WITH ${buttonText?.get(0)}"
-    val size = buttonText?.size!!
-    if(size > 1)
-        text += " AND ${size-1} OTHER"
-
-    button.text = text
-}
-
 @BindingAdapter("price", "itemCount")
-fun bindingCalculatedPrice(textView: TextView, price : Int, itemCount : Int) {
+fun bindingCalculatedPrice(textView: TextView, price: Int, itemCount: Int) {
     var text = "Total Price: "
     var value = price * itemCount
     text += value.toString()
 
     textView.text = text
+}
+
+@BindingAdapter("expireAt")
+fun bindingExpireAt(textView: TextView, expireAt: Int) {
+    val currentEpoch = Timestamp(System.currentTimeMillis())
+    val expiryEpoch = expireAt.toLong() * 1000
+    val millis = expiryEpoch - currentEpoch.time
+    if (millis > 0) {
+        val hms = String.format(
+            "%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
+            TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(
+                TimeUnit.MILLISECONDS.toHours(
+                    millis
+                )
+            ),
+            TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(
+                TimeUnit.MILLISECONDS.toMinutes(
+                    millis
+                )
+            )
+        )
+
+        textView.text = "Time: " + hms
+
+    } else {
+        textView.text = "Expired"
+    }
+
 }

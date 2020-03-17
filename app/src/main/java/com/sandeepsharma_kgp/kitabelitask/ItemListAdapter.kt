@@ -1,5 +1,6 @@
 package com.sandeepsharma_kgp.kitabelitask
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sandeepsharma_kgp.kitabelitask.databinding.PurchaseItemBinding
+import java.sql.Timestamp
 
 
 class ItemListAdapter(private val onClickListener: OnClickListener) :
@@ -37,6 +39,25 @@ class ItemListAdapter(private val onClickListener: OnClickListener) :
         val item = getItem(position)
         holder.binding.groupButton.setOnClickListener {
             onClickListener.onClick(item.itemDTO)
+        }
+        val button = holder.binding.groupButton
+        val currentEpoch = Timestamp(System.currentTimeMillis())
+        val expiryEpoch = item.expireAt?.toLong()?.times(1000)
+        val millis = expiryEpoch?.minus(currentEpoch.time)
+        if (millis!=null && millis < 0) {
+            button.text = "EXPIRED"
+            button.setTextColor(Color.BLACK)
+            button.setBackgroundColor(Color.GRAY)
+            button.isClickable = false
+        } else {
+            var text = "BUY WITH ${item.userNames.get(0)}"
+            val size = item.userNames.size
+            if (size > 1)
+                text += " AND ${size - 1} OTHER"
+
+            button.text = text
+            button.setTextColor(Color.WHITE)
+            button.setBackgroundColor(0xff669900.toInt())
         }
         holder.bind(item)
     }

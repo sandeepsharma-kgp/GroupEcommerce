@@ -87,8 +87,8 @@
                 android:padding="5dp"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="@{response.expireAt.toString()}"
-                android:textSize="14sp" />
+                app:expireAt="@{response.expireAt}"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/group_button"
@@ -96,10 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@android:color/holo_green_dark"
-                android:textColor="@color/design_default_color_surface"
-                android:textSize="16sp"
-                app:buttonText="@{response.userNames}" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
