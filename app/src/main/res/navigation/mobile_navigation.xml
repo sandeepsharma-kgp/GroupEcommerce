@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_item_list">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.sandeepsharma_kgp.kitabelitask.ItemListFragment"
+        android:id="@+id/navigation_item_list"
+        android:name="com.sandeepsharma_kgp.kitabelitask.itemList.ItemListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/fragment_item_list">
         <action
-            android:id="@+id/action_navigation_home_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
+            android:id="@+id/action_to_item_detail"
+            app:destination="@id/navigation_item_detail" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.sandeepsharma_kgp.kitabelitask.CheckoutFragment"
+        android:id="@+id/navigation_checkout"
+        android:name="com.sandeepsharma_kgp.kitabelitask.checkout.CheckoutFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications">
+        tools:layout="@layout/fragment_checkout_page">
         <argument
             android:name="selectedItem"
             app:argType="com.sandeepsharma_kgp.kitabelitask.ItemDTO" />
@@ -30,16 +30,16 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.sandeepsharma_kgp.kitabelitask.ItemDetailFragment"
+        android:id="@+id/navigation_item_detail"
+        android:name="com.sandeepsharma_kgp.kitabelitask.itemDetail.ItemDetailFragment"
         android:label="@string/itemDetail"
-        tools:layout="@layout/fragment_dashboard">
+        tools:layout="@layout/fragment_item_detail">
         <argument
             android:name="selectedItem"
             app:argType="com.sandeepsharma_kgp.kitabelitask.ItemDTO" />
         <action
             android:id="@+id/action_to_checkout"
-            app:destination="@id/navigation_notifications"
+            app:destination="@id/navigation_checkout"
             />
     </fragment>
 </navigation>

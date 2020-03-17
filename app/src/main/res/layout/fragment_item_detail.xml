@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.sandeepsharma_kgp.kitabelitask.ItemDetailViewModel" />
+            type="com.sandeepsharma_kgp.kitabelitask.itemDetail.ItemDetailViewModel" />
     </data>
 
     <ScrollView

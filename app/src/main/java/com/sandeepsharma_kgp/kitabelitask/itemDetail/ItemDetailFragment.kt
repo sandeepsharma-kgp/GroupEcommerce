@@ -1,4 +1,4 @@
-package com.sandeepsharma_kgp.kitabelitask
+package com.sandeepsharma_kgp.kitabelitask.itemDetail
 
 import android.content.Intent
 import android.graphics.Color
@@ -13,7 +13,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.sandeepsharma_kgp.kitabelitask.databinding.FragmentDashboardBinding
+import com.sandeepsharma_kgp.kitabelitask.*
+import com.sandeepsharma_kgp.kitabelitask.databinding.FragmentItemDetailBinding
 import com.smarteist.autoimageslider.IndicatorAnimations
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderView
@@ -31,7 +32,7 @@ class ItemDetailFragment : Fragment() {
     ): View? {
         itemDetailViewModel =
             ViewModelProviders.of(this).get(ItemDetailViewModel::class.java)
-        val binding = FragmentDashboardBinding.inflate(inflater)
+        val binding = FragmentItemDetailBinding.inflate(inflater)
         binding.viewModel = itemDetailViewModel
         binding.lifecycleOwner = this
         val itemDetail = ItemDetailFragmentArgs.fromBundle(
@@ -67,7 +68,7 @@ class ItemDetailFragment : Fragment() {
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(this) {
-            view?.findNavController()?.navigate(R.id.navigation_home)
+            view?.findNavController()?.navigate(R.id.navigation_item_list)
         }
 
         itemDetailViewModel.itemUrl.observe(viewLifecycleOwner, Observer {

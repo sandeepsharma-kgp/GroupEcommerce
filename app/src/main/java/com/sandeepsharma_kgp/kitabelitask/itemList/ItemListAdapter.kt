@@ -1,18 +1,21 @@
-package com.sandeepsharma_kgp.kitabelitask
+package com.sandeepsharma_kgp.kitabelitask.itemList
 
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.sandeepsharma_kgp.kitabelitask.ItemDTO
+import com.sandeepsharma_kgp.kitabelitask.ResponseModel
 import com.sandeepsharma_kgp.kitabelitask.databinding.PurchaseItemBinding
 import java.sql.Timestamp
 
 
 class ItemListAdapter(private val onClickListener: OnClickListener) :
-    ListAdapter<ResponseModel, ItemListAdapter.ItemViewHolder>(DiffCallback) {
+    ListAdapter<ResponseModel, ItemListAdapter.ItemViewHolder>(
+        DiffCallback
+    ) {
 
     companion object DiffCallback : DiffUtil.ItemCallback<ResponseModel>() {
         override fun areItemsTheSame(oldItem: ResponseModel, newItem: ResponseModel): Boolean {

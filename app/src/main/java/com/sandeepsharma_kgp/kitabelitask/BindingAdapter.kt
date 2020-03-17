@@ -1,16 +1,17 @@
 package com.sandeepsharma_kgp.kitabelitask
 
-import android.annotation.SuppressLint
-import android.graphics.Color
 import android.graphics.Paint
-import android.widget.Button
+import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.sandeepsharma_kgp.kitabelitask.itemList.ItemListAdapter
+import com.sandeepsharma_kgp.kitabelitask.itemList.ItemListApiStatus
 import java.sql.Timestamp
 import java.util.concurrent.TimeUnit
 
@@ -45,6 +46,38 @@ fun bindPriceText(textView: TextView, itemPrice: String?) {
 @BindingAdapter("discountPrice")
 fun bindDiscountPriceText(textView: TextView, discountPrice: String?) {
     textView.text = "Rp $discountPrice"
+}
+
+@BindingAdapter("itemListApiStatus")
+fun bindStatus(statusImageView: ImageView, status: ItemListApiStatus?) {
+    when (status) {
+        ItemListApiStatus.LOADING -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.ic_dashboard_black_24dp)
+        }
+        ItemListApiStatus.ERROR -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.ic_broken_image)
+        }
+        ItemListApiStatus.DONE -> {
+            statusImageView.visibility = View.GONE
+        }
+    }
+}
+
+@BindingAdapter("progressApiStatus")
+fun bindProgressStatus(progressBar: ProgressBar, status: ItemListApiStatus?) {
+    when (status) {
+        ItemListApiStatus.LOADING -> {
+            progressBar.visibility = View.VISIBLE
+        }
+        ItemListApiStatus.ERROR -> {
+            progressBar.visibility = View.INVISIBLE
+        }
+        ItemListApiStatus.DONE -> {
+            progressBar.visibility = View.GONE
+        }
+    }
 }
 
 @BindingAdapter("groupPrice")

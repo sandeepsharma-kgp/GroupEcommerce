@@ -1,9 +1,9 @@
-package com.sandeepsharma_kgp.kitabelitask
+package com.sandeepsharma_kgp.kitabelitask.checkout
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.travijuu.numberpicker.library.NumberPicker
+import com.sandeepsharma_kgp.kitabelitask.ItemDTO
 
 class CheckoutViewModel : ViewModel() {
     private val _selectedItem = MutableLiveData<ItemDTO>()

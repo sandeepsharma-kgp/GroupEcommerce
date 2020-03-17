@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.sandeepsharma_kgp.kitabelitask.CheckoutViewModel" />
+            type="com.sandeepsharma_kgp.kitabelitask.checkout.CheckoutViewModel" />
     </data>
 
     <LinearLayout

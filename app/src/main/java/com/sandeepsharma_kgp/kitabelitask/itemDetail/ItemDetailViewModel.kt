@@ -1,8 +1,9 @@
-package com.sandeepsharma_kgp.kitabelitask
+package com.sandeepsharma_kgp.kitabelitask.itemDetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.sandeepsharma_kgp.kitabelitask.ItemDTO
 
 
 class ItemDetailViewModel : ViewModel() {
