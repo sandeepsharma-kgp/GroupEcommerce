@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.addCallback
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -25,12 +25,12 @@ class DashboardFragment : Fragment() {
     lateinit var sliderView: SliderView
     private lateinit var adapter: SliderAdapter
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
         val binding = FragmentDashboardBinding.inflate(inflater)
         binding.viewModel = dashboardViewModel
         binding.lifecycleOwner = this
@@ -61,7 +61,9 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.itemUrl.observe(viewLifecycleOwner, Observer {
             it.let {
                 val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.setType("text/plain")
                 shareIntent.putExtra(Intent.EXTRA_TEXT, it)
+                Toast.makeText(this.context, it, Toast.LENGTH_SHORT).show()
                 activity?.startActivity(Intent.createChooser(shareIntent, "Share via"))
             }
         })
