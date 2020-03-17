@@ -49,9 +49,6 @@ class SliderAdapter(context: Context) :
         position: Int
     ) {
         val sliderItem: String = mSliderItems[position]
-        viewHolder.textViewDescription.setText("sliderItem.getDescription()")
-        viewHolder.textViewDescription.textSize = 16f
-        viewHolder.textViewDescription.setTextColor(Color.WHITE)
         Glide.with(viewHolder.itemView)
             .load(sliderItem)
             .into(viewHolder.imageViewBackground)
@@ -71,12 +68,10 @@ class SliderAdapter(context: Context) :
         ViewHolder(itemView) {
         var imageViewBackground: ImageView
         var imageGifContainer: ImageView
-        var textViewDescription: TextView
 
         init {
             imageViewBackground = itemView.findViewById(R.id.iv_auto_image_slider)
             imageGifContainer = itemView.findViewById(R.id.iv_gif_container)
-            textViewDescription = itemView.findViewById(R.id.tv_auto_image_slider)
         }
     }
 

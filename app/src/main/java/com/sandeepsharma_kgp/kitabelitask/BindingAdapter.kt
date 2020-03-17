@@ -59,7 +59,7 @@ fun bindDiscountPriceText(button: Button, buttonText: List<String>?) {
 
 @BindingAdapter("price", "itemCount")
 fun bindingCalculatedPrice(textView: TextView, price : Int, itemCount : Int) {
-    var text = "Price: "
+    var text = "Total Price: "
     var value = price * itemCount
     text += value.toString()
 

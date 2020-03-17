@@ -72,11 +72,11 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/cardView"
                 app:layout_constraintStart_toEndOf="@id/ratingCount"
-                android:layout_margin="16dp"
+                android:layout_margin="14dp"
                 android:clickable="false"
                 android:focusable="false"
                 android:textColor="@color/red"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 app:groupPrice="@{viewModel.selectedItem.groupPrice.toString()}" />
 
             <ImageView

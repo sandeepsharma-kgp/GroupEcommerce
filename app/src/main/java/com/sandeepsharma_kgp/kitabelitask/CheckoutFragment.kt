@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -37,8 +38,10 @@ class CheckoutFragment : Fragment() {
 
         checkoutViewModel.setItem(item)
         checkoutViewModel.setQuantity(quantityCount)
-//        binding.numberPicker.value = quantityCount
 
+        binding.checkoutButton.setOnClickListener {
+            Toast.makeText(this.context,"Checkout Done",Toast.LENGTH_LONG).show()
+        }
 
         binding.numberPicker.setValueChangedListener(object : ValueChangedListener {
             override fun valueChanged(value: Int, action: ActionEnum?) {

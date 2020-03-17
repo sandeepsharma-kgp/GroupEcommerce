@@ -7,4 +7,5 @@
     <string name="itemimage">itemImage</string>
     <string name="description">Description :</string>
     <string name="buy_now">BUY NOW</string>
+    <string name="checkout">CHECKOUT</string>
 </resources>
