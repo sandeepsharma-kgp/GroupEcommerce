@@ -1,12 +1,8 @@
 package com.sandeepsharma_kgp.kitabelitask
 
-import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sandeepsharma_kgp.kitabelitask.ItemDTO
-import com.travijuu.numberpicker.library.NumberPicker
 
 
 class ItemDetailViewModel : ViewModel() {

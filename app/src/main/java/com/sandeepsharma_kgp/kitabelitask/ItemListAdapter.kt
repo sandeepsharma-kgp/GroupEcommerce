@@ -36,7 +36,6 @@ class ItemListAdapter(private val onClickListener: OnClickListener) :
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = getItem(position)
         holder.binding.groupButton.setOnClickListener {
-            Toast.makeText(it.context, "Pressed", Toast.LENGTH_LONG).show()
             onClickListener.onClick(item.itemDTO)
         }
         holder.bind(item)

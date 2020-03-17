@@ -42,6 +42,11 @@ fun bindDiscountPriceText(textView: TextView, discountPrice: String?) {
     textView.text = "Rp $discountPrice"
 }
 
+@BindingAdapter("groupPrice")
+fun bindGroupPriceText(textView: TextView, groupPrice: String?) {
+    textView.text = "Rp $groupPrice/item"
+}
+
 @BindingAdapter("buttonText")
 fun bindDiscountPriceText(button: Button, buttonText: List<String>?) {
     var text = "BUY WITH ${buttonText?.get(0)}"
@@ -50,4 +55,13 @@ fun bindDiscountPriceText(button: Button, buttonText: List<String>?) {
         text += " AND ${size-1} OTHER"
 
     button.text = text
+}
+
+@BindingAdapter("price", "itemCount")
+fun bindingCalculatedPrice(textView: TextView, price : Int, itemCount : Int) {
+    var text = "Price: "
+    var value = price * itemCount
+    text += value.toString()
+
+    textView.text = text
 }

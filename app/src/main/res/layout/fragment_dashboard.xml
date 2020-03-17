@@ -58,12 +58,26 @@
                 app:layout_constraintTop_toBottomOf="@id/cardView" />
 
             <TextView
+                android:id="@+id/ratingCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:text="@{viewModel.selectedItem.ratingCount.toString()}"
                 app:layout_constraintStart_toEndOf="@id/ratingBar"
                 app:layout_constraintTop_toBottomOf="@id/cardView" />
+
+            <TextView
+                android:id="@+id/groupPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cardView"
+                app:layout_constraintStart_toEndOf="@id/ratingCount"
+                android:layout_margin="16dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:textColor="@color/red"
+                android:textSize="22sp"
+                app:groupPrice="@{viewModel.selectedItem.groupPrice.toString()}" />
 
             <ImageView
                 android:layout_width="50dp"
@@ -104,9 +118,8 @@
                 app:layout_constraintTop_toBottomOf="@id/descriptionText"
                 numberpicker:custom_layout="@layout/number_picker_custom_layout"
                 numberpicker:focusable="false"
-                numberpicker:max="10"
-                numberpicker:min="1"
-                numberpicker:unit="1"/>
+                app:max="10"
+                app:min="1" />
 
             <Button
                 android:id="@+id/buyButton"
