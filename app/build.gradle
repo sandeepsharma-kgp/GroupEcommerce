@@ -15,7 +15,8 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        // Enabling multidex support.
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -80,5 +81,7 @@ dependencies {
 
     implementation 'com.github.smarteist:autoimageslider:1.3.5'
 
-    compile 'com.github.travijuu:numberpicker:1.0.7'
+    implementation 'com.github.travijuu:numberpicker:1.0.7'
+
+    implementation 'com.android.support:multidex:1.0.3'
 }

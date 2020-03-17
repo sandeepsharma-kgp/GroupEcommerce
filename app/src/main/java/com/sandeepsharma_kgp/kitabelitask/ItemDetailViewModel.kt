@@ -1,4 +1,4 @@
-package com.sandeepsharma_kgp.kitabelitask.ui.dashboard
+package com.sandeepsharma_kgp.kitabelitask
 
 import android.content.Intent
 import androidx.core.content.ContextCompat.startActivity
@@ -6,9 +6,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sandeepsharma_kgp.kitabelitask.ItemDTO
+import com.travijuu.numberpicker.library.NumberPicker
 
 
-class DashboardViewModel : ViewModel() {
+class ItemDetailViewModel : ViewModel() {
     private val _selectedItem = MutableLiveData<ItemDTO>()
     val selectedItem: LiveData<ItemDTO>
         get() = _selectedItem
@@ -17,13 +18,8 @@ class DashboardViewModel : ViewModel() {
     val itemUrl: LiveData<String>
         get() = _itemUrl
 
-
     fun setItem(itemDetail: ItemDTO) {
         _selectedItem.value = itemDetail
-    }
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
     }
 
     fun shareProduct() {

@@ -1,4 +1,4 @@
-package com.sandeepsharma_kgp.kitabelitask.ui.dashboard
+package com.sandeepsharma_kgp.kitabelitask
 
 import android.content.Context
 import android.graphics.Color
@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.sandeepsharma_kgp.kitabelitask.R
 import com.smarteist.autoimageslider.SliderViewAdapter
 
 
@@ -40,7 +39,9 @@ class SliderAdapter(context: Context) :
     override fun onCreateViewHolder(parent: ViewGroup): SliderAdapterVH {
         val inflate: View =
             LayoutInflater.from(parent.context).inflate(R.layout.image_slider_layout, null)
-        return SliderAdapterVH(inflate)
+        return SliderAdapterVH(
+            inflate
+        )
     }
 
     override fun onBindViewHolder(

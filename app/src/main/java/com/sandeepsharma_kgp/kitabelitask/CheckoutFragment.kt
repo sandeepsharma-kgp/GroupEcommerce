@@ -1,4 +1,4 @@
-package com.sandeepsharma_kgp.kitabelitask.ui.notifications
+package com.sandeepsharma_kgp.kitabelitask
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,22 +8,21 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.sandeepsharma_kgp.kitabelitask.R
 
-class NotificationsFragment : Fragment() {
+class CheckoutFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var checkoutViewModel: CheckoutViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
+        checkoutViewModel =
+                ViewModelProviders.of(this).get(CheckoutViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_notifications, container, false)
         val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        checkoutViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

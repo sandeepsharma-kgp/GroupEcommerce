@@ -1,4 +1,4 @@
-package com.sandeepsharma_kgp.kitabelitask.ui.home
+package com.sandeepsharma_kgp.kitabelitask
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import com.sandeepsharma_kgp.kitabelitask.ItemListAdapter
 import com.sandeepsharma_kgp.kitabelitask.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class ItemListFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var itemListViewModel: ItemListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,16 +21,18 @@ class HomeFragment : Fragment() {
     ): View? {
         val binding = FragmentHomeBinding.inflate(inflater)
         binding.lifecycleOwner = this
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        binding.viewModel = homeViewModel
+        itemListViewModel =
+            ViewModelProviders.of(this).get(ItemListViewModel::class.java)
+        binding.viewModel = itemListViewModel
         binding.itemList.adapter = ItemListAdapter(ItemListAdapter.OnClickListener {
-            homeViewModel.displayDetail(it)
+            itemListViewModel.displayDetail(it)
         })
-        homeViewModel.navigateToSelectedItem.observe(viewLifecycleOwner, Observer {
+        itemListViewModel.navigateToSelectedItem.observe(viewLifecycleOwner, Observer {
             it?.let {
                 this.findNavController().navigate(
-                    HomeFragmentDirections.actionNavigationHomeToNavigationDashboard(it)
+                    ItemListFragmentDirections.actionNavigationHomeToNavigationDashboard(
+                        it
+                    )
                 )
             }
         })

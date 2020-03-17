@@ -1,4 +1,4 @@
-package com.sandeepsharma_kgp.kitabelitask.ui.home
+package com.sandeepsharma_kgp.kitabelitask
 
 import android.util.Log
 import android.widget.Toast
@@ -13,7 +13,7 @@ import com.sandeepsharma_kgp.kitabelitask.ResponseModel
 import com.sandeepsharma_kgp.kitabelitask.Result
 import kotlinx.coroutines.*
 
-class HomeViewModel : ViewModel() {
+class ItemListViewModel : ViewModel() {
 
 
     private val _navigateToSelectedItem= MutableLiveData<ItemDTO>()

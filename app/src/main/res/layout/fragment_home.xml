@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.sandeepsharma_kgp.kitabelitask.ui.home.HomeViewModel" />
+            type="com.sandeepsharma_kgp.kitabelitask.ItemListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

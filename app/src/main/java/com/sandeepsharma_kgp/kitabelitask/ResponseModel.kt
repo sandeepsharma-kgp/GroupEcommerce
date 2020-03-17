@@ -40,7 +40,7 @@ data class ItemDTO (
     @SerializedName("sellerLocation") val sellerLocation : String?,
     @SerializedName("category") val category : String?,
     @SerializedName("description") val description : Description?,
-    @SerializedName("quantity") val quantity : Int?,
+    @SerializedName("quantity") val quantity : Integer?,
     @SerializedName("rating") val rating : Double?,
     @SerializedName("ratingCount") val ratingCount : Int?,
     @SerializedName("itemCondition") val itemCondition : String?,
