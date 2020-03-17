@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:numberpicker="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.sandeepsharma_kgp.kitabelitask.ui.dashboard.DashboardViewModel" />
@@ -69,8 +69,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="16dp"
-                android:src="@drawable/baseline_share_24"
                 android:onClick="@{()->viewModel.shareProduct()}"
+                android:src="@drawable/baseline_share_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardView" />
 
@@ -85,15 +85,42 @@
                 app:layout_constraintTop_toBottomOf="@id/ratingBar" />
 
             <TextView
-                android:id="@+id/editText"
+                android:id="@+id/descriptionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="@{viewModel.selectedItem.description.description}"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/descriptionTitle" />
+
+            <com.travijuu.numberpicker.library.NumberPicker
+                android:id="@+id/number_picker"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_margin="21dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/descriptionText"
+                app:layout_constraintTop_toBottomOf="@id/descriptionText"
+                numberpicker:custom_layout="@layout/number_picker_custom_layout"
+                numberpicker:focusable="false"
+                numberpicker:max="10"
+                numberpicker:min="1"
+                numberpicker:unit="1"
+                numberpicker:value="-5" />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_margin="16dp"
+                android:text="@string/buy_now"
+                android:background="@android:color/holo_green_dark"
+                android:textColor="@color/design_default_color_surface"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/descriptionText"
+                app:layout_constraintStart_toEndOf="@id/number_picker"
+                app:layout_constraintTop_toBottomOf="@id/descriptionText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

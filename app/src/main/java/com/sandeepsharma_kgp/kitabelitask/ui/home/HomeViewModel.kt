@@ -10,10 +10,8 @@ import com.sandeepsharma_kgp.kitabelitask.DataSourceApi
 import com.sandeepsharma_kgp.kitabelitask.ItemDTO
 import com.sandeepsharma_kgp.kitabelitask.MainViewModel
 import com.sandeepsharma_kgp.kitabelitask.ResponseModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import com.sandeepsharma_kgp.kitabelitask.Result
+import kotlinx.coroutines.*
 
 class HomeViewModel : ViewModel() {
 
@@ -21,7 +19,6 @@ class HomeViewModel : ViewModel() {
     private val _navigateToSelectedItem= MutableLiveData<ItemDTO>()
     val navigateToSelectedItem : LiveData<ItemDTO>
         get() = _navigateToSelectedItem
-
     init {
         getData()
     }
