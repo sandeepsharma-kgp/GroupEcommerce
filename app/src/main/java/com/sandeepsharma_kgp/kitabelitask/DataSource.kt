@@ -10,7 +10,7 @@ import retrofit2.http.GET
 
 
 private const val BASE_URL =
-    "https://walaba.id/api/v1/group/"
+    "http://ec2-3-7-0-164.ap-south-1.compute.amazonaws.com:8080/api/v1/group/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
